@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a href="/" class="navbar-brand">TODO App</a>
+  <a href="/" class="navbar-brand">TODO アプリ</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -22,10 +22,10 @@
              </li>
              @else
              <li class="nav-item">
-                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                 <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                 <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
              </li>
              @endauth
          </ul>
