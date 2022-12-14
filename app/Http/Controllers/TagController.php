@@ -31,7 +31,7 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $tag = new Tag();
-        $tag->title = request('titl');
+        $tag->title = request('title');
         $tag->user_id = Auth::id();
         $tag->save();
         
@@ -71,7 +71,7 @@ class TagController extends Controller
      */
     public function destroy(Request $request,Tag $tag)
     {
-        $tag->destroy();
+        $tag->delete();
         
         $user = Auth::user();
         $tags = $user->tags;

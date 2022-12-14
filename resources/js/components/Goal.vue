@@ -2,8 +2,8 @@
     <div class="container-fruid h-100 pt-5">
         <i class="fa fa-plus pl-3" data-toggle="modal" data-target="#goalModal"></i><span class="align-middle"> Create A New Goal</span>
 
-        <i class="fa fa-plus align-middle pl-4 pr-1" data-toggle="modal" data-target="#tagModal"></i><span class="align-middle">Manage Tag</span>
-
+         <i class="fa fa-plus align-middle pl-4 pr-1" data-toggle="modal" data-target="#tagModal"></i><span class="align-middle">Manage Tag</span>
+ 
         <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -18,11 +18,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="addNewGoal">Add</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-        
+
          <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
              <div class="modal-dialog" role="document">
                  <div class="modal-content">
@@ -66,7 +67,7 @@
                  </div>
              </div>
          </div>
-
+ 
         <div class="modal fade" id="editGoalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -81,6 +82,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="editGoalTitle">Edit</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -97,6 +99,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="deleteGoal">Delete</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -134,19 +137,18 @@ export default {
         return {
             id: "",
             title: "",
-            tagId: "",
-            tagTitle: "",
-            goals: [],
-            tags: []
-            
+             tagId: "",
+             tagTitle: "",
+             goals: [],
+             tags: []
         }
     },
-      components: {
-         'goals-todos': Todos
-     },
+    components: {
+        'goals-todos': Todos
+    },
     mounted: function () {
         this.getAllGoals();
-        this.getAllTags();
+         this.getAllTags();
     },
     methods: {
         getAllGoals: function () {
@@ -194,8 +196,7 @@ export default {
                 console.log(error)
             })
             this.id = ""
-            
-        },
+         },
          getAllTags: function () {
              axios.get("/tags").then((response) => {
                  console.log(response)

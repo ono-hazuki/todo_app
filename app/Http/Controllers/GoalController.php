@@ -36,7 +36,7 @@ class GoalController extends Controller
         
         $goals = Auth::user()->goals;
         
-        return sesponse()->json($goals);
+        return response()->json($goals);
     }
 
 
@@ -50,12 +50,12 @@ class GoalController extends Controller
     public function update(Request $request, Goal $goal)
     {
         $goal->title = request('title');
-        $goal->usr_id = Auth::id();
+        $goal->user_id = Auth::id();
         $goal->save();
         
         $goals = Auth::user()->goals;
         
-        return response()->json('$goals');
+        return response()->json($goals);
     }
 
     /**
@@ -66,10 +66,10 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-        $goal->destroy();
+        $goal->delete();
         
         $goals = Auth::user()->goals;
         
-        return response()->json('$goals');
+        return response()->json($goals);
     }
 }
